@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xisobot</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0d0d0d;
+            color: #e0e0e0;
+            text-align: center;
+        }
+        header {
+            background-color: #1a1a1a;
+            color: #00ccff;
+            padding: 1em 0;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+        }
+        nav ul li {
+            margin-right: 1em;
+        }
+        nav ul li a {
+            color: #00ccff;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 0.5em;
+            transition: background-color 0.3s ease;
+        }
+        nav ul li a:hover {
+            background-color: #005f80;
+            border-radius: 5px;
+        }
+        main {
+            padding: 2em;
+        }
+        section {
+            margin: 2em 0;
+            padding: 2em;
+            background-color: #1a1a1a;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            border-radius: 8px;
+        }
+        footer {
+            background-color: #1a1a1a;
+            color: #00ccff;
+            padding: 1em 0;
+        }
+        .form-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .form-container input {
+            margin: 0.5em 0;
+            padding: 0.5em;
+            width: 200px;
+            border: 1px solid #00ccff;
+            background-color: #333;
+            color: #e0e0e0;
+        }
+        .form-container button {
+            padding: 0.5em 1em;
+            background-color: #00ccff;
+            color: #000;
+            border: none;
+            cursor: pointer;
+        }
+        .form-container button:hover {
+            background-color: #005f80;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Xisobot</h1>
+        <nav>
+            <ul>
+                <li><a href="#employees">Xodimlar Davomati</a></li>
+                <li><a href="#products">Mahsulotlar Ro'yhati</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="employees">
+            <h2>Xodimlar Davomati</h2>
+            <div class="form-container">
+                <input type="text" id="employee-name" placeholder="Ism">
+                <button onclick="addEmployee()">Qo'shish</button>
+            </div>
+            <ul id="employee-list"></ul>
+        </section>
+        <section id="products">
+            <h2>Mahsulotlar Ro'yhati</h2>
+            <div class="form-container">
+                <input type="text" id="product-name" placeholder="Mahsulot nomi">
+                <button onclick="addProduct()">Qo'shish</button>
+            </div>
+            <ul id="product-list"></ul>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Xisobot</p>
+    </footer>
+    <script>
+        function addEmployee() {
+            const name = document.getElementById('employee-name').value;
+            if (name) {
+                const employeeList = document.getElementById('employee-list');
+                const listItem = document.createElement('li');
+                listItem.textContent = name;
+                employeeList.appendChild(listItem);
+                document.getElementById('employee-name').value = '';
+            }
+        }
+
+        function addProduct() {
+            const name = document.getElementById('product-name').value;
+            if (name) {
+                const productList = document.getElementById('product-list');
+                const listItem = document.createElement('li');
+                listItem.textContent = name;
+                productList.appendChild(listItem);
+                document.getElementById('product-name').value = '';
+            }
+        }
+    </script>
+</body>
+</html>
