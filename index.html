@@ -1,138 +1,687 @@
 <!DOCTYPE html>
-<html lang="uz">
+
+<html lang=”uz”>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Xisobot</title>
+
+    <meta charset=”UTF-8”>
+
+    <meta name=”viewport” content=”width=device-width, initial-scale=1.0”>
+
+    <title>O’quv Markazi</title>
+
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #0d0d0d;
-            color: #e0e0e0;
-            text-align: center;
-        }
-        header {
-            background-color: #1a1a1a;
-            color: #00ccff;
-            padding: 1em 0;
-        }
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            margin: 0;
-        }
-        nav ul li {
-            margin-right: 1em;
-        }
-        nav ul li a {
-            color: #00ccff;
-            text-decoration: none;
-            font-weight: bold;
-            padding: 0.5em;
-            transition: background-color 0.3s ease;
-        }
-        nav ul li a:hover {
-            background-color: #005f80;
-            border-radius: 5px;
-        }
-        main {
-            padding: 2em;
-        }
-        section {
-            margin: 2em 0;
-            padding: 2em;
-            background-color: #1a1a1a;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-            border-radius: 8px;
-        }
-        footer {
-            background-color: #1a1a1a;
-            color: #00ccff;
-            padding: 1em 0;
-        }
-        .form-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
-        .form-container input {
-            margin: 0.5em 0;
-            padding: 0.5em;
-            width: 200px;
-            border: 1px solid #00ccff;
-            background-color: #333;
-            color: #e0e0e0;
-        }
-        .form-container button {
-            padding: 0.5em 1em;
-            background-color: #00ccff;
-            color: #000;
-            border: none;
-            cursor: pointer;
-        }
-        .form-container button:hover {
-            background-color: #005f80;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <h1>Xisobot</h1>
-        <nav>
-            <ul>
-                <li><a href="#employees">Xodimlar Davomati</a></li>
-                <li><a href="#products">Mahsulotlar Ro'yhati</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section id="employees">
-            <h2>Xodimlar Davomati</h2>
-            <div class="form-container">
-                <input type="text" id="employee-name" placeholder="Ism">
-                <button onclick="addEmployee()">Qo'shish</button>
-            </div>
-            <ul id="employee-list"></ul>
-        </section>
-        <section id="products">
-            <h2>Mahsulotlar Ro'yhati</h2>
-            <div class="form-container">
-                <input type="text" id="product-name" placeholder="Mahsulot nomi">
-                <button onclick="addProduct()">Qo'shish</button>
-            </div>
-            <ul id="product-list"></ul>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2024 Xisobot</p>
-    </footer>
-    <script>
-        function addEmployee() {
-            const name = document.getElementById('employee-name').value;
-            if (name) {
-                const employeeList = document.getElementById('employee-list');
-                const listItem = document.createElement('li');
-                listItem.textContent = name;
-                employeeList.appendChild(listItem);
-                document.getElementById('employee-name').value = '';
-            }
+
+        Body {
+
+            Font-family: Arial, sans-serif;
+
+            Margin: 0;
+
+            Padding: 0;
+
+            Background: linear-gradient(to right, #f8f9fa, #e9ecef);
+
         }
 
-        function addProduct() {
-            const name = document.getElementById('product-name').value;
-            if (name) {
-                const productList = document.getElementById('product-list');
-                const listItem = document.createElement('li');
-                listItem.textContent = name;
-                productList.appendChild(listItem);
-                document.getElementById('product-name').value = '';
-            }
+
+
+        Header {
+
+            Background-color: #343a40;
+
+            Color: white;
+
+            Padding: 10px 0;
+
         }
+
+
+
+        Nav ul {
+
+            List-style: none;
+
+            Padding: 0;
+
+            Display: flex;
+
+            Justify-content: center;
+
+        }
+
+
+
+        Nav ul li {
+
+            Margin: 0 15px;
+
+        }
+
+
+
+        Nav ul li a {
+
+            Color: white;
+
+            Text-decoration: none;
+
+            Transition: color 0.3s;
+
+        }
+
+
+
+        Nav ul li a:hover {
+
+            Color: #ffc107;
+
+        }
+
+
+
+        .animated-section {
+
+            Padding: 60px 20px;
+
+            Text-align: center;
+
+            Animation: fadeIn 2s;
+
+        }
+
+
+
+        .course-card, .teacher-card {
+
+            Border: 1px solid #ccc;
+
+            Padding: 20px;
+
+            Margin: 15px;
+
+            Text-align: center;
+
+            Transition: transform 0.3s;
+
+        }
+
+
+
+        .course-card:hover, .teacher-card:hover {
+
+            Transform: scale(1.05);
+
+        }
+
+
+
+        Footer {
+
+            Background-color: #343a40;
+
+            Color: white;
+
+            Text-align: center;
+
+            Padding: 10px 0;
+
+        }
+
+
+
+        Form {
+
+            Display: flex;
+
+            Flex-direction: column;
+
+            Width: 300px;
+
+            Margin: 0 auto;
+
+        }
+
+
+
+        Form label {
+
+            Margin: 5px 0;
+
+        }
+
+
+
+        Form input {
+
+            Padding: 10px;
+
+            Margin-bottom: 10px;
+
+            Border: 1px solid #ccc;
+
+        }
+
+
+
+        Form button {
+
+            Padding: 10px;
+
+            Background-color: #007bff;
+
+            Color: white;
+
+            Border: none;
+
+            Cursor: pointer;
+
+        }
+
+
+
+        Form button:hover {
+
+            Background-color: #0056b3;
+
+        }
+
+
+
+        @keyframes fadeIn {
+
+            From { opacity: 0; }
+
+            To { opacity: 1; }
+
+        }
+
+
+
+        .login, .register, .manage-teachers, .manage-students, .student-cabinet {
+
+            Display: none;
+
+            Padding: 60px 20px;
+
+            Text-align: center;
+
+        }
+
+
+
+        .active {
+
+            Display: block;
+
+        }
+
+
+
+        .cabinet-info {
+
+            Margin-top: 20px;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+
+        <nav>
+
+            <ul>
+
+                <li><a href=”#home”>Asosiy</a></li>
+
+                <li><a href=”#courses”>Kurslar</a></li>
+
+                <li><a href=”#teachers”>O’qituvchilar</a></li>
+
+                <li><a href=”#about”>Biz haqimizda</a></li>
+
+                <li><a href=”#contact”>Aloqa</a></li>
+
+                <li><a href=”#login” id=”login-link”>Kirish</a></li>
+
+                <li><a href=”#register” id=”register-link”>Ro’yxatdan o’tish</a></li>
+
+                <li><a href=”#manage-teachers” id=”manage-teachers-link”>O’qituvchilarni boshqarish</a></li>
+
+                <li><a href=”#manage-students” id=”manage-students-link”>O’quvchilarni boshqarish</a></li>
+
+                <li><a href=”#student-cabinet” id=”student-cabinet-link”>O’quvchi Kabineti</a></li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+
+    <section id=”home” class=”animated-section active”>
+
+        <h1>O’quv Markaziga Xush Kelibsiz!</h1>
+
+        <p>Bizning kurslarimiz orqali huquqiy bilimlaringizni oshiring.</p>
+
+    </section>
+
+
+
+    <section id=”courses”>
+
+        <h2>Kurslarimiz</h2>
+
+        <div class=”course-card”>
+
+            <h3>Huquqiy Nazariya</h3>
+
+            <p>Huquqiy nazariyalar va tushunchalar.</p>
+
+        </div>
+
+        <div class=”course-card”>
+
+            <h3>Amaliy Huquq</h3>
+
+            <p>Amaliy huquq va sud jarayonlari.</p>
+
+        </div>
+
+    </section>
+
+
+
+    <section id=”teachers”>
+
+        <h2>O’qituvchilarimiz</h2>
+
+        <div class=”teacher-card”>
+
+            <h3>John Doe</h3>
+
+            <p>Huquqshunos va tajribali o’qituvchi.</p>
+
+        </div>
+
+    </section>
+
+
+
+    <section id=”about”>
+
+        <h2>Biz haqimizda</h2>
+
+        <p>Bizning o’quv markazimiz huquqiy bilimlarni oshirishga qaratilgan.</p>
+
+    </section>
+
+
+
+    <section id=”contact”>
+
+        <h2>Aloqa</h2>
+
+        <form>
+
+            <label for=”name”>Ism:</label>
+
+            <input type=”text” id=”name” name=”name” required>
+
+            <label for=”email”>Email:</label>
+
+            <input type=”email” id=”email” name=”email” required>
+
+            <button type=”submit”>Yuborish</button>
+
+        </form>
+
+    </section>
+
+<section id=”login” class=”login”>
+
+        <h2>Kirish</h2>
+
+        <form id=”login-form”>
+
+            <label for=”login-email”>Email:</label>
+
+            <input type=”email” id=”login-email” name=”login-email” required>
+
+            <label for=”login-password”>Parol:</label>
+
+            <input type=”password” id=”login-password” name=”login-password” required>
+
+            <button type=”submit”>Kirish</button>
+
+        </form>
+
+        <p id=”login-error” style=”color: red; display: none;”>Login yoki parol xato!</p>
+
+    </section>
+
+
+
+    <section id=”register” class=”register”>
+
+        <h2>Ro’yxatdan O’tish</h2>
+
+        <form id=”register-form”>
+
+            <label for=”register-name”>Ism:</label>
+
+            <input type=”text” id=”register-name” name=”register-name” required>
+
+            <label for=”register-email”>Email:</label>
+
+            <input type=”email” id=”register-email” name=”register-email” required>
+
+            <label for=”register-password”>Parol:</label>
+
+            <input type=”password” id=”register-password” name=”register-password” required>
+
+            <button type=”submit”>Ro’yxatdan O’tish</button>
+
+        </form>
+
+    </section>
+
+
+
+    <section id=”manage-teachers” class=”manage-teachers”>
+
+        <h2>O’qituvchilarni Boshqarish</h2>
+
+        <form id=”add-teacher-form”>
+
+            <label for=”teacher-name”>O’qituvchi Ismi:</label>
+
+            <input type=”text” id=”teacher-name” name=”teacher-name” required>
+
+            <label for=”teacher-email”>O’qituvchi Email:</label>
+
+            <input type=”email” id=”teacher-email” name=”teacher-email” required>
+
+            <button type=”submit”>Qo’shish</button>
+
+        </form>
+
+        <h3>O’qituvchilar Ro’yxati:</h3>
+
+        <ul id=”teacher-list”>
+
+            <!—O’qituvchilar ro’yxati bu yerda paydo bo’ladi 
+
+        </ul>
+
+    </section>
+
+
+
+    <section id=”manage-students” class=”manage-students”>
+
+        <h2>O’quvchilarni Boshqarish</h2>
+
+        <form id=”add-student-form”>
+
+            <label for=”student-name”>O’quvchi Ismi:</label>
+
+            <input type=”text” id=”student-name” name=”student-name” required>
+
+            <label for=”student-email”>O’quvchi Email:</label>
+
+            <input type=”email” id=”student-email” name=”student-email” required>
+
+            <button type=”submit”>Qo’shish</button>
+
+        </form>
+
+        <h3>O’quvchilar Ro’yxati:</h3>
+
+        <ul id=”student-list”>
+
+            <!—O’quvchilar ro’yxati bu yerda paydo bo’ladi 
+
+        </ul>
+
+    </section>
+
+
+
+    <section id=”student-cabinet” class=”student-cabinet”>
+
+        <h2>O’quvchi Kabineti</h2>
+
+        <div class=”cabinet-info”>
+
+            <p><strong>Guruh:</strong> <span id=”student-group”></span></p>
+
+     Albatta! Mana, HTML kodining davomiy qismi:
+
+
+
+<p><strong>O’qituvchi:</strong> <span id=”student-teacher”></span></p>
+
+            <p><strong>Dars sanasi:</strong> <span id=”class-date”></span></p>
+
+            <p><strong>Dars xonasi:</strong> <span id=”classroom”></span></p>
+
+            <p><strong>Balans:</strong> <span id=”balance”></span></p>
+
+        </div>
+
+    </section>
+
+
+
+    <footer>
+
+        <p>&copy; 2024 O’quv Markazi. Barcha huquqlar himoyalangan.</p>
+
+    </footer>
+
+
+
+    <script>
+
+        // JavaScript kodlari
+
+        Const teachers = [];
+
+        Const students = [];
+
+
+
+        Document.getElementById(“login-link”).addEventListener(“click”, function() {
+
+            showSection(“login”);
+
+        });
+
+
+
+        Document.getElementById(“register-link”).addEventListener(“click”, function() {
+
+            showSection(“register”);
+
+        });
+
+
+
+        Document.getElementById(“manage-teachers-link”).addEventListener(“click”, function() {
+
+            showSection(“manage-teachers”);
+
+        });
+
+
+
+        Document.getElementById(“manage-students-link”).addEventListener(“click”, function() {
+
+            showSection(“manage-students”);
+
+        });
+
+
+
+        Document.getElementById(“student-cabinet-link”).addEventListener(“click”, function() {
+
+            showSection(“student-cabinet”);
+
+            loadStudentCabinet();
+
+        });
+
+
+
+        Function showSection(sectionId) {
+
+            Const sections = document.querySelectorAll(“section”);
+
+            Sections.forEach(section => {
+
+                Section.classList.remove(“active”);
+
+            });
+
+            Document.getElementById(sectionId).classList.add(“active”);
+
+        }
+
+
+
+        Document.getElementById(“login-form”).addEventListener(“submit”, function(event) {
+
+            Event.preventDefault();
+
+            Const email = document.getElementById(“login-email”).value;
+
+            Const password = document.getElementById(“login-password”).value;
+
+
+
+            // Mu temporarily admin login
+
+            If (email === “diyor006” && password === “diyor006”) {
+
+                Alert(“Admin sifatida kirdingiz!”);
+
+                showSection(“manage-teachers”);
+
+            } else {
+
+                Const student = students.find(s => s.email === email && s.password === password);
+
+                If (student) {
+
+                    Alert(“O’quvchi sifatida kirdingiz!”);
+
+                    showSection(“student-cabinet”);
+
+                    loadStudentCabinet(student);
+
+                } else {
+
+                    Document.getElementById(“login-error”).style.display = “block”;
+
+                }
+
+            }
+
+        });
+
+
+
+        Document.getElementById(“register-form”).addEventListener(“submit”, function(event) {
+
+            Event.preventDefault();
+
+            Const name = document.getElementById(“register-name”).value;
+
+            Const email = document.getElementById(“register-email”).value;
+
+            Const password = document.getElementById(“register-password”).value;
+
+
+
+            Students.push({ name, email, password });
+
+            Alert(“Ro’yxatdan o’tdingiz!”);
+
+            showSection(“login”);
+
+        });
+
+
+
+        Document.getElementById(“add-teacher-form”).addEventListener(“submit”, function(event) {
+
+            Event.preventDefault();
+
+            Const name = document.getElementById(“teacher-name”).value;
+
+            Const email = document.getElementById(“teacher-email”).value;
+
+
+
+            Teachers.push({ name, email });
+
+            Document.getElementById(“teacher-list”).innerHTML += `<li>${name} - ${email}</li>`;
+
+            Alert(“O’qituvchi qo’shildi!”);
+
+            Document.getElementById(“add-teacher-form”).reset();
+
+        });
+
+
+
+        Document.getElementById(“add-student-form”).addEventListener(“submit”, function(event) {
+
+            Event.preventDefault();
+
+            Const name = document.getElementById(“student-name”).value;
+
+            Const email = document.getElementById(“student-email”).value;
+
+
+
+            Students.push({ name, email });
+
+            Document.getElementById(“student-list”).innerHTML += `<li>${name} - ${email}</li>`;
+
+            Alert(“O’quvchi qo’shildi!”);
+
+            Document.getElementById(“add-student-form”).reset();
+
+        });
+
+
+
+        Function loadStudentCabinet(student) {
+
+            // O’quvchi kabineti ma’lumotlari
+
+            Document.getElementById(“student-group”).innerText = “Guruh 1”; // Misol uchun
+
+            Document.getElementById(“student-teacher”).innerText = “John Doe”; // Misol uchun
+
+            Document.getElementById(“class-date”).innerText = “2024-10-20”; // Misol uchun
+
+            Document.getElementById(“classroom”).innerText = “Xona 101”; // Misol uchun
+
+            Document.getElementById(“balance”).innerText = “$50”; // Misol uchun
+
+        }
+
     </script>
+
 </body>
-</html>
+
+    </html>
